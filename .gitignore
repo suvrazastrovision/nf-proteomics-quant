@@ -1,0 +1,38 @@
+# Nextflow runtime
+.nextflow/
+.nextflow.*
+work/
+execution_trace.txt
+
+# Scientific data and generated results
+results/
+output/
+*.raw
+*.RAW
+*.mzML
+*.mzML.gz
+*.d/
+*.wiff
+*.wiff.scan
+*.fasta
+*.fa
+*.fas
+*.quant
+*.parquet
+*.speclib
+*.zip
+SHA256SUMS.txt
+
+# Credentials and local configuration
+*.pem
+.aws/
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.github-checkout/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

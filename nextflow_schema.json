@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/lehtiolab/nf-diann//nextflow_schema.json",
+  "title": "lehtiolab/nf-diann pipeline parameters",
+  "description": "DIA-NN pipeline",
+  "type": "object",
+  "properties": {
+    "raw": {
+      "type": "string"
+    },
+    "mzml": {
+      "type": "string"
+    },
+    "library": {
+      "type": "string"
+    },
+    "ms1acc": {
+      "type": "boolean"
+    },
+    "ms2acc": {
+      "type": "boolean"
+    },
+    "window": {
+      "type": "boolean"
+    },
+    "varmods": {
+      "type": "string",
+      "default": "UniMod:35,15.994915,M"
+    },
+    "fixmods": {
+      "type": "string",
+      "default": "UniMod:4,57.021464,C"
+    },
+    "ntermmetexcision": {
+      "type": "boolean"
+    },
+    "ntermacetyl": {
+      "type": "boolean"
+    },
+    "maxvarmods": {
+      "type": "integer",
+      "default": 2
+    },
+    "miscleav": {
+      "type": "integer",
+      "default": 1
+    },
+    "precconflvl": {
+      "type": "number",
+      "default": 0.01
+    },
+    "proteinconflvl": {
+      "type": "number",
+      "default": 0.01
+    },
+    "mincharge": {
+      "type": "integer",
+      "default": 2
+    },
+    "maxcharge": {
+      "type": "integer",
+      "default": 4
+    },
+    "minmz": {
+      "type": "integer",
+      "default": 300
+    },
+    "maxmz": {
+      "type": "integer",
+      "default": 1300
+    },
+    "minfragmz": {
+      "type": "integer",
+      "default": 200
+    },
+    "maxfragmz": {
+      "type": "integer",
+      "default": 1800
+    },
+    "minpeplen": {
+      "type": "integer",
+      "default": 8
+    },
+    "maxpeplen": {
+      "type": "integer",
+      "default": 40
+    },
+    "nonorm": {
+      "type": "boolean"
+    },
+    "proteotypicity": {
+      "type": "integer",
+      "default": 2
+    },
+    "ids_to_names": {
+      "type": "boolean"
+    },
+    "enzyme": {
+      "type": "string",
+      "default": "trypsin"
+    },
+    "exclude_contaminants": {
+      "type": "boolean"
+    },
+    "individual_massacc": {
+      "type": "boolean"
+    },
+    "individual_windows": {
+      "type": "boolean"
+    },
+    "create_lib": {
+      "type": "boolean"
+    },
+    "train_quantums": {
+      "type": "boolean"
+    },
+    "quantfile": {
+      "type": "boolean"
+    },
+    "batchsize": {
+      "type": "integer",
+      "default": 0
+    },
+    "quantdir": {
+      "type": "boolean"
+    },
+    "output_pred_lib": {
+      "type": "boolean"
+    },
+    "output_emp_lib": {
+      "type": "boolean"
+    },
+    "outputquant": {
+      "type": "boolean"
+    },
+    "outputreport": {
+      "type": "boolean"
+    },
+    "tdb": {
+      "type": "string"
+    },
+    "input": {
+      "type": "string"
+    }
+  }
+}

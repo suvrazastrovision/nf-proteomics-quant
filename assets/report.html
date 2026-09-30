@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>DIA-NN pipeline report</title>
+    <style type="text/css">
+      <% out << bulma.join('\n')  %>
+    </style>
+          
+    <% out << libs.join('\n')  %>
+
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="title is-2">DIA-NN pipeline report</h2>
+      <h4 class="subtitle is-4">
+          <% out << runname %>
+      </h4>
+
+      <p class="is-size-6">Completed at {{ reportdate }}</p>
+      <div class="is-size-6 tags has-addons">Pipeline version {{ version }} &nbsp;<span class="tag is-dark">DOI</span><span class="tag is-info">{{ doi }}</span></div>
+
+      <div class="mt-5 tabs is-boxed"> 
+        <ul>
+          <li id="resultstab" class="is-active"><a>Results</a></li>
+          {% if reporttype == 'full' %}
+          <li id="precqctab"> <a>Precursors</a> </li>
+          <li id="featqctab"> <a>Proteins/genes </a> </li>
+          {% endif %}
+          <li id="rundatatab"><a>Run data</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="resultspage" class="mt-5 container">
+
+      {% if warnings|length %}
+      <h4 class="title is-4">Warnings</h4>
+      <div class="notification is-danger">
+        <ul>
+          {% for warn in warnings %}
+          <li>&bull; {{ warn }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <h4 class="title is-4">Identification summary</h4>
+      <table class="table is-striped is-narrow is-hoverable is-size-7">
+        <thead>
+          <th>Filename</th>
+          {% for field in summary_fields %}
+          <th>{{ tabletitles[field] }}</th>
+          {% endfor %}
+        </thead>
+        <tbody>
+          {% for fname in summary_table %}
+          <tr>
+            <td> {{ fname }}</td>
+            {% for field in summary_fields %}
+            <td> {{ summary_table[fname][field] }} </td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+      <h4 class="title is-4">Overlap</h4>
+      <div class="columns">
+        {% for fname, ftitle in featnames %}
+        {% if overlap[fname] %}
+        <div class="column">
+          <h5 class="title is-5">{{ ftitle }}</h5>
+          <table class="table is-striped is-narrow is-hoverable is-size-7">
+            <thead>
+              <th>ID in # files</th>
+              <th>Amount {{ fname }}</th>
+            </thead>
+            <tbody>
+              {% for nr_sets in overlap[fname] %}
+              <tr>
+                <td> {{ nr_sets }} </td>
+                <td> {{ overlap[fname][nr_sets] }} </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      <h4 class="title is-4">Missed cleavages</h4>
+      <table class="table is-striped is-narrow is-hoverable is-size-7">
+        <thead>
+          <th>File</th>
+          <th># missed cleavages</th>
+          <th># precursors</th>
+          <th>% precursors</th>
+        </thead>
+        <tbody>
+          {% for plate, mc, psms, pc in miscleav %}
+          <tr>
+            <td> {{ plate }} </td>
+            <td> {{ mc }} </td>
+            <td> {{ psms }} </td>
+            <td> {{ pc }} </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+
+    <div id="rundatapage" class="mt-5 container">
+      <h4 class="title is-4">Software versions</h4>
+      <table class="table">
+        <thead>
+          <th>Software</th>
+          <th>Version</th>
+          <th>Container</th>
+        </thead>
+        <tbody>
+          <% out << sw_versions.collect { "<tr><td>${it[0]}</td> <td>${it[1]}</td> <td>${it[2]}</td> </tr>" }.join("\n") %>
+        </tbody>
+      </table>
+
+      <hr>
+      <h4 class="title is-4">Non-default parameters</h4>
+      <table class="table">
+        <thead>
+          <th>Parameter</th>
+          <th>Value</th>
+        </thead>
+        <tbody>
+          <% out << params.collect { "<tr><td><code>--${it.key}</code></td> <td><code>${it.value}</code></td> </tr>" }.join("\n") %>
+        </tbody>
+      </table>
+
+
+      <hr>
+      <h4 class="title is-4">Input files</h4>
+      <table class="table">
+        <thead>
+          <% out << infiles[0].collect { "<th>${it}</th>" }.join('\n') %>
+        </thead>
+        <tbody>
+          <% out << infiles[1..-1].collect { "<tr> ${it.collect{x -> "<td>${x}</td>" }.join('\n')}</tr>" }.join('\n') %>
+
+        </tbody>
+      </table>
+    </div>
+
+    {% if reporttype == 'full' %}
+    <div id="psmqcpage" class="mt-5 container">
+      {% for plotname in precplots %}
+      <div class="columns">
+        {% for sf in ['sample', 'file'] %}
+        {% if sf in precplots[plotname] and precplots[plotname][sf] %}
+        <div class="column">
+          <h4 class="title is-4">{{ precplots[plotname][sf][0].title }} per {{ sf }}</h4>
+          {% for pplot in precplots[plotname][sf]  %}
+          {{ pplot.plot }}
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      <div class="columns">
+        <div class="column">
+          <h4 class="title is-4">{{ precplots['precerror'][0].title }}</h4>
+          {% for pplot in precplots['precerror']  %}
+          {{ pplot.plot }}
+          {% endfor %}
+        </div>
+        <div class="column">
+          <h4 class="title is-4">{{ precplots['retentiontime'][0].title }}</h4>
+          {% for pplot in precplots['retentiontime']  %}
+          {{ pplot.plot }}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column">
+          <h4 class="title is-4">{{ precplots['precquant'][0].title }}</h4>
+          {% for pplot in precplots['precquant']  %}
+          {{ pplot.plot }}
+          {% endfor %}
+        </div>
+        <div class="column">
+          <h4 class="title is-4">{{ precplots['peakwidth'][0].title }}</h4>
+          {% for pplot in precplots['peakwidth']  %}
+          {{ pplot.plot }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div id="featqcpage" class="mt-5 container">
+      {% for plotname, plottitle in featplotnames %}
+      {% if featplots[plotname] %}
+      <div class="container">
+        <h4 class="title is-4">{{ plottitle }}</h4>
+        <div class="columns">
+          {% for fname, ftitle in featnames %}
+          {% if featplots[plotname][fname] %}
+          <div class="column">
+            <h5 class="title is-5">{{ ftitle }}</h5>
+            {% for line in featplots[plotname][fname + '__text'] %}
+            <p>{{ line }}</p>
+            {% endfor %}
+            {% for plot in featplots[plotname][fname] %}
+            {{ plot }}
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <script type="text/javascript">
+      let tabs = [
+        ['results', document.getElementById('resultstab'), document.getElementById('resultspage')],
+        ['rundata', document.getElementById('rundatatab'), document.getElementById('rundatapage')],
+        {% if reporttype == 'full' %}
+        ['psmqc', document.getElementById('precqctab'), document.getElementById('psmqcpage')],
+        ['featqc', document.getElementById('featqctab'), document.getElementById('featqcpage')],
+        {% endif %}
+      ];
+      tabs.forEach(t => {
+        t[1].addEventListener('click', e => toggleTab(t[0]));
+        t[2].style.display = 'none';
+      });
+
+      function toggleTab(tabname) {
+        tabs.filter(x => x[0] != tabname).forEach(t => {
+          t[1].classList.remove('is-active');
+          t[2].style.display = 'none';
+        });
+        tabs.filter(x => x[0] == tabname).forEach(t => {
+          t[1].classList.add('is-active');
+          t[2].style.display = 'block';
+        });
+      }
+
+      // Show first tab
+      tabs[0][2].style.display = 'block';
+    </script>
+    
+  </body> </html>
