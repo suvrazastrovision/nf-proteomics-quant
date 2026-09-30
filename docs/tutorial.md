@@ -6,9 +6,7 @@ Complete the sections in order. Use placeholders for bucket names, profiles, SSH
 
 ## Project contribution
 
-This project documents the AWS execution and reproducibility layer designed and validated by **Suvranath**. The contribution covers secure S3-to-EC2 data movement, least-privilege IAM access, repeatable EC2 setup, bounded Nextflow resources, automated DIA quantification, execution reporting, provenance, checksums, and public validation data.
-
-The nf-diann workflow and DIA-NN engine are upstream open-source projects. This project presents the AWS integration and operational workflow and does not claim authorship of those scientific tools.
+This project documents the AWS execution and reproducibility layer's validated design. The contribution covers secure S3-to-EC2 data movement, least-privilege IAM access, repeatable EC2 setup, bounded Nextflow resources, automated DIA quantification, execution reporting, provenance, checksums, and public validation data. The nf-diann workflow and DIA-NN engine are upstream open-source projects. 
 
 ## Validated environment
 
@@ -347,6 +345,6 @@ Scientific execution uses [lehtiolab/nf-diann](https://github.com/lehtiolab/nf-d
 
 For the demonstration dataset and validated results, cite:
 
-> Suvranath. *Test DIA proteomics dataset and nf-diann analysis results*. Zenodo. https://doi.org/10.5281/zenodo.23065890
+> Suvra Nath. *Automated Proteomics(DIA) Quant: Cloud Platform Engineering*. Zenodo. https://doi.org/10.5281/zenodo.23065890
 
 The upstream copyright notice and MIT terms remain in [LICENSE](../LICENSE).
