@@ -19,7 +19,6 @@ flowchart LR
 
 - [Step-by-step tutorial](docs/tutorial.md)
 - [Published demonstration dataset and results at Zenodo](https://doi.org/10.5281/zenodo.23065890)
-- [Upstream nf-diann workflow](https://github.com/lehtiolab/nf-diann)
 - [DIA-NN](https://github.com/vdemichev/DiaNN)
 - [Nextflow](https://www.nextflow.io/)
-- [License](LICENSE)
+
