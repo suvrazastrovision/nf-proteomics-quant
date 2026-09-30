@@ -4,6 +4,7 @@ This project presents a **reproducible cloud-based workflow for automated DIA pr
 
 [![Documentation](https://img.shields.io/badge/Documentation-Tutorial-2ea44f?logo=readthedocs&logoColor=white)](docs/tutorial.md)
 [![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20S3-FF9900?logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 [![DIA-NN](https://img.shields.io/badge/DIA--NN-GitHub-181717?logo=github&logoColor=white)](https://github.com/vdemichev/DiaNN)
 [![Nextflow](https://img.shields.io/badge/Nextflow-Workflow-23BFC2?logo=nextflow&logoColor=white)](https://www.nextflow.io/)
 [![Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.23065890.svg)](https://doi.org/10.5281/zenodo.23065890)
