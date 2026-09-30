@@ -1,6 +1,6 @@
 # Automated Proteomics(DIA) Quant
 
-This project presents a **reproducible cloud-based workflow for automated DIA proteomics quantification** using AWS, Nextflow and DIA-NN. By automating data processing, workflow execution, and result generation, the framework **reduces manual intervention, minimizes processing errors, improves reproducibility, and enables consistent analysis across large proteomics datasets**. The approach provides a scalable foundation for standardized and efficient high-throughput proteomics analysis.
+This repo presents a **reproducible cloud-based workflow for automated DIA proteomics quantification** using AWS, Nextflow and DIA-NN. By automating data processing, workflow execution, and result generation, the framework **reduces manual intervention, minimizes processing errors, improves reproducibility, and enables consistent analysis across large proteomics datasets**. The approach provides a scalable foundation for standardized and efficient high-throughput proteomics analysis.
 
 [![Documentation](https://img.shields.io/badge/Documentation-Tutorial-2ea44f?logo=readthedocs&logoColor=white)](docs/tutorial.md)
 [![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20S3-FF9900?logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
