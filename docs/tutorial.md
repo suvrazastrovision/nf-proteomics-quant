@@ -2,11 +2,11 @@
 
 [Back to project overview](../README.md)
 
-Complete the sections in order. Use placeholders for bucket names, profiles, SSH keys, and IP addresses. Never commit credentials or private scientific data.
+Try to complete the sections in order. Use placeholders for bucket names, profiles, SSH keys, and IP addresses. Never commit credentials or private scientific data.
 
 ## Project contribution
 
-This project documents the AWS execution and reproducibility layer's validated design. The contribution covers secure S3-to-EC2 data movement, least-privilege IAM access, repeatable EC2 setup, bounded Nextflow resources, automated DIA quantification, execution reporting, provenance, checksums, and public validation data. The nf-diann workflow and DIA-NN engine are upstream open-source projects. 
+This project documents the AWS execution and reproducibility layer's validated design. The contribution covers secure S3-to-EC2/Batch data movement, least-privilege IAM access, repeatable EC2 setup, bounded Nextflow resources, automated DIA quantification, execution reporting, provenance, checksums, and public validation data. The nf-diann workflow and DIA-NN engine are upstream open-source projects.
 
 ## Validated environment
 
@@ -20,7 +20,7 @@ This project documents the AWS execution and reproducibility layer's validated d
 | nf-diann | `0.4`, commit `0446401d9d62b1d2acda186f697c6ef14a982327` |
 | DIA-NN | `2.6.1` in `ghcr.io/lehtiolab/nf-diann:0.3` |
 
-The EC2 size is a validated example for this test. Actual memory, storage, runtime, and cost depend on the dataset.
+The EC2 size is a validated example for this test. For final complete batch one can use the same set up on AWS Batch with EBS attached. Actual memory, storage, runtime, and cost depend on the dataset.
 
 ## Published demonstration
 
@@ -28,7 +28,7 @@ The validated test input, complete result archive, and SHA-256 checksums are pub
 
 **DOI:** [10.5281/zenodo.23065890](https://doi.org/10.5281/zenodo.23065890)
 
-- `testsample.raw` - DIA-MS test input
+- `testsample.raw` - DIA-MS test input (WT mouse hippocampal sample)
 - `run-001-results.zip` - DIA-NN outputs, reports, logs, and metadata
 - `SHA256SUMS.txt` - integrity checksums
 
