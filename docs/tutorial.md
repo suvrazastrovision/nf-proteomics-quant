@@ -339,7 +339,7 @@ The run is complete when the scientific report opens locally, the complete resul
 
 ## Attribution and citation
 
-This AWS workflow was developed and validated by **Suvranath** as a portfolio project in cloud bioinformatics and automated proteomics quantification.
+This AWS workflow was developed and validated by **Suvra Nath** as a portfolio project in cloud bioinformatics and automated proteomics quantification.
 
 Scientific execution uses [lehtiolab/nf-diann](https://github.com/lehtiolab/nf-diann), [DIA-NN](https://github.com/vdemichev/DiaNN), and [Nextflow](https://www.nextflow.io/). Their respective authorship and citation guidance apply.
 
