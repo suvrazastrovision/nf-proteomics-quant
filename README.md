@@ -1,6 +1,5 @@
 # Automated Proteomics(DIA) Quant
 
-[![Documentation](https://img.shields.io/badge/Documentation-Tutorial-2ea44f?logo=readthedocs&logoColor=white)](docs/tutorial.md)
 [![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20S3-FF9900?logo=amazonwebservices&logoColor=white)](https://aws.amazon.com/)
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 [![DIA-NN](https://img.shields.io/badge/DIA--NN-GitHub-181717?logo=github&logoColor=white)](https://github.com/vdemichev/DiaNN)
@@ -20,4 +19,6 @@ flowchart LR
     G -->|Archive| B
     B -->|Download| A
 ```
+
+**Documentation:** [Follow the complete step-by-step AWS tutorial](docs/tutorial.md)
 
