@@ -21,7 +21,7 @@ flowchart LR
     B -->|Download| A
 ```
 
-**Documentation:**Follow the complete step-by-step [tutorial](docs/tutorial.md)
+<strong>Documentation:</strong> Follow the complete step-by-step [tutorial](docs/tutorial.md)
 
 Read my blogpost on [Medium](https://medium.com/@suvranath047/engineering-reproducible-dia-proteomics-on-aws-with-nextflow-and-dia-nn-69a54e17f234?sharedUserId=suvranath047)
 
