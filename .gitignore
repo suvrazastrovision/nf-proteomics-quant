@@ -7,6 +7,7 @@ execution_trace.txt
 # Scientific data and generated results
 results/
 output/
+outputs/
 *.raw
 *.RAW
 *.mzML
@@ -22,6 +23,9 @@ output/
 *.speclib
 *.zip
 SHA256SUMS.txt
+
+# Local draft work
+_draft_work/
 
 # Credentials and local configuration
 *.pem
