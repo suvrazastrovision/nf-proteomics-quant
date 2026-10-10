@@ -23,3 +23,5 @@ flowchart LR
 
 **Documentation:** [Follow the complete step-by-step AWS tutorial](docs/tutorial.md)
 
+**Medium post:** [Engineering Reproducible DIA Proteomics on AWS with Nextflow and DIA-NN](https://medium.com/@suvranath047/engineering-reproducible-dia-proteomics-on-aws-with-nextflow-and-dia-nn-69a54e17f234?sharedUserId=suvranath047)
+
